@@ -2,13 +2,13 @@ import React from 'react';
 import App from './App';
 var SpotifyWebApi = require('spotify-web-api-js');
 var spotifyApi = new SpotifyWebApi();
-spotifyApi.setAccessToken(sessionStorage.token);
 
 function Webplayer() {
 	let playerElement = React.createRef();
 	let shuffleState = false;
 	let volume = 1;
 
+	spotifyApi.setAccessToken(sessionStorage.token);
 	spotifyApi.getUserPlaylists().then(
 		function(data) {
 			console.log(data.items);
