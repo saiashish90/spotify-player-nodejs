@@ -38,6 +38,7 @@ if (sessionStorage.token) {
 	var today = new Date();
 	var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 	sessionStorage.expiresOn = time;
+	window.history.replaceState('/', 'Sample Title', '/');
 }
 
 setInterval(function() {
