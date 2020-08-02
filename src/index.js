@@ -4,7 +4,6 @@ import $ from 'jquery';
 
 import './index.css';
 import Webplayer from './Webplayer';
-
 let button = (
 	<a id="login" href="/login">
 		Login
@@ -39,7 +38,6 @@ if (sessionStorage.token) {
 	var today = new Date();
 	var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 	sessionStorage.expiresOn = time;
-	window.history.replaceState('/', 'Sample Title', '/');
 }
 
 setInterval(function() {
