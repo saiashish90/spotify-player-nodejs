@@ -5,7 +5,7 @@ import $ from 'jquery';
 import './index.css';
 import Webplayer from './Webplayer';
 let button = (
-	<a id="login" href="/login">
+	<a id="login" href="http://localhost:8888/login">
 		Login
 	</a>
 );
@@ -22,7 +22,7 @@ function getHashParams() {
 
 if (sessionStorage.token) {
 	$.ajax({
-		url  : '/refresh_token',
+		url  : 'http://localhost:8888/refresh_token',
 		data : {
 			refresh_token : sessionStorage.refresh_token
 		}
@@ -43,7 +43,7 @@ if (sessionStorage.token) {
 
 setInterval(function() {
 	$.ajax({
-		url  : '/refresh_token',
+		url  : 'http://localhost:8888/refresh_token',
 		data : {
 			refresh_token : sessionStorage.refresh_token
 		}
