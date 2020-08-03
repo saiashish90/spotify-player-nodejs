@@ -29,7 +29,7 @@ if (sessionStorage.token) {
 	}).done(function(data) {
 		sessionStorage.token = data.access_token;
 	});
-	button = <p>Logged in</p>;
+	button = <p />;
 	console.log(sessionStorage);
 } else if (window.location.hash.split('&')[0].split('=')[1]) {
 	var params = getHashParams();
@@ -39,6 +39,7 @@ if (sessionStorage.token) {
 	var time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 	sessionStorage.expiresOn = time;
 	window.history.replaceState('/', 'Sample Title', '/');
+	button = <p />;
 }
 
 setInterval(function() {

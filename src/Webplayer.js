@@ -1,5 +1,6 @@
 import React from 'react';
 import App from './App';
+import './css/styles.css';
 var SpotifyWebApi = require('spotify-web-api-js');
 var spotifyApi = new SpotifyWebApi();
 
@@ -43,6 +44,8 @@ function Webplayer() {
 		try {
 			player.addListener('player_state_changed', ({ position, duration, track_window: { current_track } }) => {
 				document.getElementById('track').innerHTML = current_track.name;
+				console.log(current_track.album.images[0]);
+				document.getElementById('art').src = current_track.album.images[0].url;
 				console.log('Position in Song', position);
 				console.log('Duration of Song', duration);
 			});
@@ -83,13 +86,32 @@ function Webplayer() {
 
 	return (
 		<div>
+			<div className="text-center h-auto p-5 items-center mx-auto max-w-md shadow-2xl bg-secondary">
+				<img className="mx-auto" id="art" width="200" height="200" />
+				<h3 className="text-xl  text-white" id="track">
+					NO SONG
+				</h3>
+				<div className="text-primary  my-8 text-3xl">
+					<button id="setShuffle">
+						<i className=" mx-5 bx bx-shuffle" />
+					</button>
+
+					<button id="prevTrack">
+						<i className="mx-5 bx bxs-skip-previous-circle" />
+					</button>
+					<button id="playPause">
+						<i className="mx-5 bx bx-play-circle" />
+					</button>
+					<button id="nextTrack">
+						<i className="mx-5 bx bxs-skip-next-circle" />
+					</button>
+					<button id="repeat">
+						<i className="mx-5 bx bx-repeat" />
+					</button>
+				</div>
+				<input id="volume" type="range" min="0" max="1" step=".1" />
+			</div>
 			<App ref={playerElement} spotifyApi={spotifyApi} />
-			<h3 id="track">NO SONG</h3>
-			<button id="prevTrack">Prev</button>
-			<button id="playPause">Play/Pause</button>
-			<button id="nextTrack">Next</button>
-			<button id="setShuffle">Shuffle</button>
-			<input id="volume" type="range" min="0" max="1" step=".1" />
 		</div>
 	);
 }
