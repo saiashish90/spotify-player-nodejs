@@ -10,7 +10,7 @@ const App = forwardRef((props, ref) => {
 			device_id   : deviceID,
 			context_uri : linkToSong,
 			offset      : {
-				position : 5
+				position : 0
 			},
 			position_ms : 0
 		});
