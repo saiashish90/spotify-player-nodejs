@@ -5,7 +5,7 @@ import $ from 'jquery';
 import './index.css';
 import Webplayer from './Webplayer';
 let button = (
-	<a id="login" href="/login">
+	<a id="login" href="https://spotify-server-ispulvp3la-as.a.run.app/login">
 		Login
 	</a>
 );
@@ -22,7 +22,7 @@ function getHashParams() {
 
 if (sessionStorage.token) {
 	$.ajax({
-		url  : '/refresh_token',
+		url  : 'https://spotify-server-ispulvp3la-as.a.run.app/refresh_token',
 		data : {
 			refresh_token : sessionStorage.refresh_token
 		}
@@ -44,7 +44,7 @@ if (sessionStorage.token) {
 
 setInterval(function() {
 	$.ajax({
-		url  : '/refresh_token',
+		url  : 'https://spotify-server-ispulvp3la-as.a.run.app/refresh_token',
 		data : {
 			refresh_token : sessionStorage.refresh_token
 		}
